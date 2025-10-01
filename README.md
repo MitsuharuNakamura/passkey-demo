@@ -201,12 +201,6 @@ passkey-demo/
 │   ├── index.html     # メインHTML
 │   ├── app.js         # フロントエンドJS（WebAuthn API）
 │   └── styles.css     # スタイルシート
-├── docs/               # Twilioベータドキュメント
-│   ├── 1 Verify Passkeys Client Library Technical Overview.md
-│   ├── 2 Verify Passkeys quickstart.md
-│   ├── 3 Entity Resource.md
-│   ├── 4 Factor Resource.md
-│   └── 5 Challenge Resource.md
 ├── package.json       # 依存関係
 ├── .env.example       # 環境変数テンプレート
 └── README.md          # このファイル
