@@ -1,0 +1,402 @@
+/* Twilio公式カラーパレット */
+:root {
+    --twilio-red: #F22F46;
+    --twilio-dark: #0D122B;
+    --twilio-gray-dark: #282A3A;
+    --twilio-gray: #606B85;
+    --twilio-gray-light: #E1E3EA;
+    --twilio-white: #FFFFFF;
+    --twilio-blue: #0263E0;
+    --twilio-success: #14B053;
+    --twilio-error: #D61F1F;
+}
+
+/* リセットとベーススタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--twilio-dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--twilio-gray-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* ヘッダー */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--twilio-white);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--twilio-gray-light);
+    font-weight: 400;
+}
+
+/* カード共通スタイル */
+.form-card, .welcome-card, .info-card {
+    background: var(--twilio-white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-bottom: 20px;
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--twilio-gray-dark);
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--twilio-gray-light);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--twilio-blue);
+    box-shadow: 0 0 0 3px rgba(2, 99, 224, 0.1);
+}
+
+.form-group input::placeholder {
+    color: var(--twilio-gray);
+}
+
+/* ボタンスタイル */
+.btn {
+    width: 100%;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--twilio-red);
+    color: var(--twilio-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #E0203B;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(242, 47, 70, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--twilio-white);
+    color: var(--twilio-gray-dark);
+    border: 2px solid var(--twilio-gray-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--twilio-gray-light);
+    border-color: var(--twilio-gray);
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: auto;
+}
+
+/* フォームフッター */
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--twilio-gray);
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: var(--twilio-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.form-footer a:hover {
+    color: #0052C7;
+    text-decoration: underline;
+}
+
+/* ダッシュボード */
+.welcome-card {
+    text-align: center;
+}
+
+.welcome-card h2 {
+    color: var(--twilio-dark);
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.user-info {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--twilio-gray-dark);
+    font-weight: 600;
+}
+
+.username {
+    color: var(--twilio-gray);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.success-message {
+    color: var(--twilio-success);
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+.info-card h3 {
+    color: var(--twilio-dark);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--twilio-gray-light);
+    font-size: 1rem;
+    color: var(--twilio-gray-dark);
+}
+
+.info-card li:last-child {
+    border-bottom: none;
+}
+
+/* ローディング */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 18, 43, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: var(--twilio-white);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid var(--twilio-red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* メッセージ */
+.error-message, .success-message {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+    font-weight: 500;
+}
+
+.error-message {
+    background: #FFEBEE;
+    color: var(--twilio-error);
+    border-left: 4px solid var(--twilio-error);
+}
+
+.success-message {
+    background: #E8F5E9;
+    color: var(--twilio-success);
+    border-left: 4px solid var(--twilio-success);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* デバッグセクション */
+.debug-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--twilio-white);
+    border-radius: 8px;
+    border: 1px solid var(--twilio-gray-light);
+}
+
+.debug-section summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--twilio-gray-dark);
+    padding: 10px;
+    user-select: none;
+}
+
+.debug-section summary:hover {
+    color: var(--twilio-red);
+}
+
+.debug-section details[open] summary {
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--twilio-gray-light);
+    padding-bottom: 10px;
+}
+
+#users-list {
+    margin-top: 15px;
+    padding: 16px;
+    background: var(--twilio-gray-light);
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow-y: auto;
+    color: var(--twilio-gray-dark);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .form-card, .welcome-card, .info-card {
+        padding: 24px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}
+
+/* アニメーション */
+.form-card, .welcome-card, .info-card {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* アクセシビリティ */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* フォーカス可視性 */
+*:focus-visible {
+    outline: 3px solid var(--twilio-blue);
+    outline-offset: 2px;
+}
+
+/* スクロールバー（Chrome/Safari） */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--twilio-gray-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--twilio-gray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--twilio-gray-dark);
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passkey認証デモ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Passkey認証デモ</h1>
+            <p class="subtitle">Twilio Verify Passkeysを使用した生体認証</p>
+        </header>
+
+        <!-- ログイン前の画面 -->
+        <div id="auth-container" class="auth-section">
+            <!-- ログインフォーム -->
+            <div id="login-form" class="form-card">
+                <h2>ログイン</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-username">ユーザー名</label>
+                        <input type="text" id="login-username" required placeholder="登録したユーザー名">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">パスキーでログイン</span>
+                    </button>
+                </form>
+                <p class="form-footer">
+                    アカウントをお持ちでない方は
+                    <a href="#" id="show-register">新規登録</a>
+                </p>
+            </div>
+
+            <!-- 登録フォーム -->
+            <div id="register-form" class="form-card" style="display: none;">
+                <h2>新規登録</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="register-username">ユーザー名</label>
+                        <input type="text" id="register-username" required 
+                               placeholder="半角英数字" pattern="[a-zA-Z0-9]+">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-displayname">表示名</label>
+                        <input type="text" id="register-displayname" required 
+                               placeholder="田中太郎">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">パスキーで登録</span>
+                    </button>
+                </form>
+                <p class="form-footer">
+                    既にアカウントをお持ちの方は
+                    <a href="#" id="show-login">ログイン</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ログイン後の画面 -->
+        <div id="dashboard" class="dashboard" style="display: none;">
+            <div class="welcome-card">
+                <h2>ようこそ！</h2>
+                <p class="user-info">
+                    <strong id="user-displayname"></strong>
+                    <span class="username">(@<span id="user-username"></span>)</span>
+                </p>
+                <p class="success-message">✅ パスキー認証に成功しました</p>
+                <button id="logout-btn" class="btn btn-secondary">ログアウト</button>
+            </div>
+            
+            <div class="info-card">
+                <h3>パスキーについて</h3>
+                <ul>
+                    <li>🔒 パスワードより安全</li>
+                    <li>📱 デバイスに保存される秘密鍵</li>
+                    <li>🚀 生体認証で素早くログイン</li>
+                    <li>🛡️ フィッシング耐性あり</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ローディング表示 -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>処理中...</p>
+        </div>
+
+        <!-- エラーメッセージ -->
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
+        <!-- 成功メッセージ -->
+        <div id="success-message" class="success-message" style="display: none;"></div>
+
+        <!-- デバッグ情報 -->
+        <div class="debug-section">
+            <details>
+                <summary>デバッグ情報</summary>
+                <div id="debug-info">
+                    <button id="show-users-btn" class="btn btn-small">登録ユーザー一覧</button>
+                    <div id="users-list"></div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- WebAuthn JSON ライブラリをCDNから読み込み -->
+    <script type="module">
+        import { create, get, parseCreationOptionsFromJSON, parseRequestOptionsFromJSON } from 'https://cdn.jsdelivr.net/npm/@github/webauthn-json/dist/esm/webauthn-json.browser-ponyfill.js';
+        
+        // グローバルに公開
+        window.webauthnJSON = {
+            create,
+            get,
+            parseCreationOptionsFromJSON,
+            parseRequestOptionsFromJSON
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
